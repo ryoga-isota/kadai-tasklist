@@ -1,0 +1,13 @@
+<h1>タスク一覧</h1>
+
+<ul>
+    # すべてのタスクを1つずつ繰り返し読み込む
+<% @tasks.each do |task| %>
+    <li>
+    <%= link_to task.id, task %>
+        # 読み込んだタスクの内容を表示する
+    <%= task.content %>
+    </li>
+<% end %>
+</ul>
+<%= limk_to '新規作成ページの投稿', new_task_path %>
