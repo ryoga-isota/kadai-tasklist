@@ -18,7 +18,6 @@ class TasksController < ApplicationController
             redirect_to @task
         else
             flash.now[:danger] = 'Taskが投稿されませんでした'
-            # タスク新規作成ページを表示する
             render :new
         end 
     end
@@ -45,3 +44,10 @@ class TasksController < ApplicationController
         redirect_to tasks_url
     end 
 end
+
+private
+
+# Strong Parameter
+def task_params
+    params.require(:task).permit(:content)
+end 
